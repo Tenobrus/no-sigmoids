@@ -1,0 +1,149 @@
+METR Time Horizon Data - Collected Feb 5, 2026
+================================================
+
+SOURCE: https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/
+SOURCE: https://x.com/METR_Evals/status/2019169900317798857 (Feb 4, 2026)
+
+=== KEY NEW DATA POINTS (TH 1.1 methodology) ===
+
+GPT-5.2 (high reasoning effort):
+  - Release: 2025-12-11
+  - 50% Time Horizon: 394.38 min (~6.6 hours)
+  - 95% CI: 197.67 to 1053.05 min (3 hr 18 min to 17 hr 33 min)
+  - 80% Time Horizon: 55.13 min (CI: 27.38 to 111.64 min)
+  - Average Score: 75.3%
+  - Working Time: 512,631 seconds
+  - Scaffold: triframe_inspect/triframe_agent
+
+Claude Opus 4.5:
+  - Release: 2025-11-24
+  - 50% Time Horizon: 320.42 min (~5 hr 20 min)
+  - 95% CI: 169.76 to 758.0 min (2 hr 50 min to 12 hr 38 min)
+  - 80% Time Horizon: 41.55 min (CI: 17.83 to 86.72 min)
+  - Average Score: 73.0%
+  - Working Time: 19,770 seconds
+  - Scaffold: metr_agents/react + various
+
+Gemini 3 Pro:
+  - Release: 2025-11-18
+  - 50% Time Horizon: 236.65 min (~3 hr 57 min)
+  - 95% CI: 140.58 to 452.0 min
+  - 80% Time Horizon: 43.44 min (CI: 21.58 to 78.45 min)
+  - Average Score: 71.0%
+  - Working Time: 52,126 seconds
+
+GPT-5.1 Codex Max (TH 1.1):
+  - Release: 2025-11-19
+  - 50% Time Horizon: 236.55 min (~3 hr 57 min)
+  - 95% CI: 133.82 to 461.50 min
+  - 80% Time Horizon: 41.0 min (CI: 22.63 to 70.65 min)
+  - Average Score: 70.8%
+  - Working Time: 197,781 seconds
+
+GPT-5 (TH 1.1):
+  - Release: 2025-08-07
+  - 50% Time Horizon: 213.95 min (~3 hr 34 min)
+  - 95% CI: 119.74 to 460.18 min
+  - Average Score: 69.4%
+
+o3 (TH 1.1):
+  - Release: 2025-04-16
+  - 50% Time Horizon: 120.73 min (~2 hr 1 min)
+  - 95% CI: 73.66 to 200.35 min
+  - Average Score: 63.6%
+
+Claude Opus 4 (TH 1.1):
+  - Release: 2025-05-22
+  - 50% Time Horizon: 101.18 min (~1 hr 41 min)
+  - 95% CI: 59.36 to 171.19 min
+  - Average Score: 61.5%
+
+=== FULL TH 1.1 SOTA DATASET (50% time horizon in minutes) ===
+
+Model                          Release Date    p50 Horizon (min)  p50 CI Low   p50 CI High   Avg Score   is_sota
+GPT-2                          2019-02-14      0.040              0.002        0.130         10.1%       true
+Davinci-002                    2020-05-28      0.149              0.071        0.246         16.2%       true
+GPT-3.5 Turbo Instruct        2022-03-15      0.604              0.227        0.990         21.5%       true
+GPT-4                          2023-03-14      3.525              1.605        7.051         29.3%       true
+GPT-4 (1106)                   2023-11-06      3.610              1.551        7.229         28.9%       true
+GPT-4o                         2024-05-13      6.404              3.525        11.765        33.8%       true
+Claude 3.5 Sonnet (Old)        2024-06-20      10.772             4.980        21.221        40.2%       true
+o1-preview                     2024-09-12      19.395             10.921       32.055        45.1%       true
+Claude 3.5 Sonnet (New)        2024-10-22      19.776             9.634        38.136        45.2%       true
+o1                             2024-12-05      37.938             20.592       64.002        51.1%       true
+Claude 3.7 Sonnet              2025-02-24      59.764             33.082       107.730       55.8%       true
+o3                             2025-04-16      120.730            73.656       200.354       63.6%       true
+GPT-5                          2025-08-07      213.954            119.737      460.178       69.4%       true
+Gemini 3 Pro                   2025-11-18      236.655            140.581      451.987       71.0%       true
+GPT-5.1 Codex Max              2025-11-19      236.549            133.825      461.504       70.8%       true (non-frontier)
+Claude Opus 4.5                2025-11-24      320.422            169.761      757.994       73.0%       true
+GPT-5.2 (high)                 2025-12-11      394.384            197.665      1053.048      75.3%       true
+
+=== NON-SOTA MODELS in TH 1.1 ===
+
+Claude 3 Opus                  2024-03-04      3.575              1.436        7.621         29.5%       false
+GPT-4 Turbo                    2024-04-09      3.225              1.570        5.948         27.2%       false
+Claude Opus 4                  2025-05-22      101.183            59.359       171.194       61.5%       false
+
+=== DOUBLING TIMES ===
+
+TH 1.1 Methodology:
+  All-time (stitched): 188.657 days (~6.3 months)
+  From 2023 onwards: 128.12 days (~4.3 months)
+    - CI: 104.60 to 155.65 days
+
+TH 1.0 Methodology (original paper used this):
+  All-time: 195.82 days (~6.5 months)
+    - CI: 161.98 to 223.07 days
+  From 2023 onwards: 165.25 days (~5.5 months)
+    - CI: 129.05 to 211.25 days
+
+=== KEY CHANGES FROM TH 1.0 TO TH 1.1 ===
+
+- Larger task suite (expanded software tasks)
+- Updated scaffolding (triframe_inspect for some models, metr_agents/react for others)
+- Some models re-evaluated with new infrastructure
+- Doubling time from 2023 onward accelerated: ~5.5 months (v1.0) -> ~4.3 months (v1.1)
+- New models added: Claude Opus 4, Gemini 3 Pro, Claude Opus 4.5, GPT-5.2
+
+=== ORIGINAL PAPER (Ge, Bastani, Bastani 2026) DATA ===
+
+The original paper used TH 1.0 data with 15 SOTA models ending at GPT-5.1 Codex Max.
+Their analysis found:
+  - Sigmoid curve inflection point: 2025-06-06
+  - Base capability inflection: 2024-11-21
+  - Reasoning capability inflection: 2026-06-06
+  - Sigmoid MSE: 203.69
+  - B-Spline MSE: 511.80
+  - Exponential MSE: 2874.67
+  - METR Exponential MSE: 339.93
+  - Simple Sigmoid MSE: 27.37
+
+=== ANALYSIS RESULTS (addendum_analysis.py) ===
+
+Sigmoid Inflection Points:
+  Original paper (TH 1.0): 2025-06-06
+  Our TH 1.0 refit (verified): 2025-06-06
+  New TH 1.1 fit: 2025-09-16  --> SHIFTED 3 MONTHS LATER
+
+Sigmoid Asymptote:
+  TH 1.0: 208.6 min (3.5 hrs)
+  TH 1.1: 493.2 min (8.2 hrs) --> MORE THAN DOUBLED
+
+Exponential Doubling Times:
+  TH 1.0 (all): 201 days (6.6 months)
+  TH 1.1 (all): 189 days (6.2 months)
+  TH 1.1 (2023+): 128 days (4.2 months) --> FASTER than original
+
+New Data Points vs Original Predictions:
+  Gemini 3 Pro: Actual=236.7 min, Sigmoid predicted=163.6, Exp predicted=129.1
+  Claude Opus 4.5: Actual=320.4 min, Sigmoid predicted=165.3, Exp predicted=131.8
+  GPT-5.2: Actual=394.4 min, Sigmoid predicted=169.7, Exp predicted=139.7
+  --> ALL new models EXCEED both predictions by 1.5-2.8x
+
+KEY FINDING: New data WEAKENS the plateau hypothesis:
+- Inflection point pushed later
+- Asymptote nearly tripled
+- Actual values far exceed original sigmoid predictions
+- Doubling time accelerated (faster progress)
+- R² for exponential dropped 0.978 -> 0.939 but data still consistent with exponential
