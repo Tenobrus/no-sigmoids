@@ -275,8 +275,6 @@ def run_analysis():
     ax.legend(fontsize=8, loc='upper left')
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))
     ax.tick_params(axis='x', rotation=45)
-    ax.set_ylim(0, max(500, max(new_h) * 1.2))
-
     # Panel B: TH 1.1 updated fit
     ax = axes[1]
     y_sig11 = sigmoid_predict(ct_pred, sig11['b1'], sig11['b2'], sig11['b3'])
@@ -295,7 +293,10 @@ def run_analysis():
     ax.legend(fontsize=8, loc='upper left')
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))
     ax.tick_params(axis='x', rotation=45)
-    ax.set_ylim(0, max(700, sig11['b1'] * 1.1))
+    # Shared Y axis
+    shared_ymax = max(700, sig11['b1'] * 1.1, max(new_h) * 1.2)
+    axes[0].set_ylim(0, shared_ymax)
+    axes[1].set_ylim(0, shared_ymax)
 
     plt.tight_layout()
     plt.savefig("figures/addendum_fig1_sigmoid.png", dpi=300, bbox_inches='tight')
